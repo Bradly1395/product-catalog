@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #f6f4ee;
+  --surface: #fdfcf9;
+  --surface-muted: #efece4;
+  --ink: #181715;
+  --ink-muted: #615d55;
+  --line: #dfd9cd;
+  --line-strong: #c9c1b2;
+  --accent: #b84a27;
+  --accent-hover: #9b3b1d;
+  --moss: #2a6b4f;
+  --danger: #ae2e24;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-moss: var(--moss);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  background-color: var(--canvas);
+  color: var(--ink);
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: #b84a27;
+  color: #fdfcf9;
+}
+
+/* Subtle paper grain overlay for tactile depth on key surfaces */
+.surface-paper {
+  background-image: radial-gradient(
+    rgba(24, 23, 21, 0.03) 0.5px,
+    transparent 0.5px
+  );
+  background-size: 16px 16px;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-modal-in {
+  animation: modalFadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
